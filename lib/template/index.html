@@ -18,29 +18,35 @@
     </div>
     <div class="link-warp">
       <a id="fast" class="link" href="?delay=0">快进</a>
-      <div id="stopMusic" class="link">停止音乐</div>
+      <div id="stopMusic" class="link">开始音乐</div>
       <a class="link" href="http://download.zhaozhonggong.com/ios_app/zzg_pro/iOSDemo.pdf">iOS简历</a>
       <a class="link" href="http://download.zhaozhonggong.com/ios_app/zzg_pro/webDemo.pdf">前端简历</a>
     </div>
   </div>
   <audio id="audio" src="http://vip.baidu190.com/src110.php?uid=201709be7c0aacac8e51242f6b89fbedfa1105.mp3"style="display: none;"></audio>
 </body>
-<script >
-if (window.location.search.indexOf('delay') >-1)document.getElementById('fast').style.display = 'none';
-setTimeout(()=>{document.getElementById('audio').play()},1000)
-document.getElementById('stopMusic').addEventListener('click',function (){
-	let audio = document.getElementById('audio') ;
-	let musicBtn = document.getElementById('stopMusic') ;
-	if ( audio.ended || audio.paused ){
-		audio.play();
-		musicBtn.innerText = '停止音乐'
-	}
-    else {
-		audio.pause();
-		musicBtn.innerText = '播放音乐'
-	}
-});
 
+<script >
+if (window.location.search.indexOf('delay') >-1) document.getElementById('fast').style.display = 'none';
+
+let audio = document.getElementById('audio');
+let musicBtn = document.getElementById('stopMusic');
+
+let addListener = ()=> musicBtn.addEventListener('click', () => {
+		if (audio.ended || audio.paused) audio.play().catch(err => {}); else audio.pause();
+		musicBtn.innerText = audio.ended || audio.paused ? '播放音乐' : '停止音乐';
+	});
+
+let removeDocEvent = ()=> document.removeEventListener('click',docClick);
+
+let docClick = ()=>{
+	audio.play();
+	musicBtn.innerText = '停止音乐';
+	removeDocEvent();
+	addListener();
+}
+
+document.addEventListener('click',docClick);
 
 </script>
 <style type="text/css">
