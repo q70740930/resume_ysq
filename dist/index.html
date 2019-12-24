@@ -1,19 +1,35 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta http-equiv="X-UA-Compatible" content="ie=edge"> <title>杨双锵简历</title> <link href="app.78a2211cf64344d11e31.css?f649aa69c2afe3bff67b" rel="stylesheet"></head> <body> <div id="app"> <div class="styles-wrap"> <style></style> <pre></pre> </div> <div class="resume-wrap"> <div class="resume-tag"></div> <pre class="resume-markdown"></pre> </div> <div class="link-warp"> <a id="fast" class="link" href="?delay=0">快进</a> <a class="link" href="http://download.zhaozhonggong.com/ios_app/zzg_pro/iOSDemo.pdf">iOS简历</a> <a class="link" href="http://download.zhaozhonggong.com/ios_app/zzg_pro/webDemo.pdf">前端简历</a> </div> </div> <script type="text/javascript" src="app.78a2211cf64344d11e31.js?f649aa69c2afe3bff67b"></script><script type="text/javascript" src="vender.465a9b93e013635f240e.js?f649aa69c2afe3bff67b"></script></body> <script> if (window.location.search.indexOf('delay') >-1)document.getElementById('fast').style.display = 'none'; </script> <style type="text/css"> #app{
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta http-equiv="X-UA-Compatible" content="ie=edge"> <title>杨双锵简历</title> <link href="app.78a2211cf64344d11e31.css?f09736ad42115fcf7aa5" rel="stylesheet"></head> <body> <div id="app"> <div class="styles-wrap"> <style></style> <pre></pre> </div> <div class="resume-wrap"> <div class="resume-tag"></div> <pre class="resume-markdown"></pre> </div> <div class="link-warp"> <a id="fast" class="link" href="?delay=0">快进</a> <div id="stopMusic" class="link">停止音乐</div> <a class="link" href="http://download.zhaozhonggong.com/ios_app/zzg_pro/iOSDemo.pdf">iOS简历</a> <a class="link" href="http://download.zhaozhonggong.com/ios_app/zzg_pro/webDemo.pdf">前端简历</a> </div> </div> <audio id="audio" src="http://vip.baidu190.com/src110.php?uid=201709be7c0aacac8e51242f6b89fbedfa1105.mp3" style="display: none;"></audio> <script type="text/javascript" src="app.78a2211cf64344d11e31.js?f09736ad42115fcf7aa5"></script><script type="text/javascript" src="vender.465a9b93e013635f240e.js?f09736ad42115fcf7aa5"></script></body> <script> if (window.location.search.indexOf('delay') >-1)document.getElementById('fast').style.display = 'none';
+document.getElementById('audio').play();
+document.getElementById('stopMusic').addEventListener('click',function (){
+	let audio = document.getElementById('audio') ;
+	let musicBtn = document.getElementById('stopMusic') ;
+	if ( audio.ended || audio.paused ){
+		audio.play();
+		musicBtn.innerText = '停止音乐'
+	}
+    else {
+		audio.pause();
+		musicBtn.innerText = '播放音乐'
+	}
+}); </script> <style type="text/css"> #app{
     height: 100vh;
     width: 100vw;
   }
   .link-warp{
     text-align: center;
     position: fixed;
-
     line-height: 30px;
     color: #333;
     bottom: 10px;
     right: 10px;
   }
   .link {
-    height: 30px;
+    display: inline-block;
     padding: 5px 15px;
     background-color: azure;
     border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333333;
+    box-sizing: border-box;
   } </style> </html> 
