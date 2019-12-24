@@ -27,7 +27,7 @@
 </body>
 <script >
 if (window.location.search.indexOf('delay') >-1)document.getElementById('fast').style.display = 'none';
-document.getElementById('audio').play();
+setTimeout(()=>{document.getElementById('audio').play()},1000)
 document.getElementById('stopMusic').addEventListener('click',function (){
 	let audio = document.getElementById('audio') ;
 	let musicBtn = document.getElementById('stopMusic') ;
