@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>resume-native</title>
+  <title>杨双锵简历</title>
 </head>
 <body>
   <div id="app">
@@ -16,6 +16,30 @@
       <div class="resume-tag"></div>
       <pre class="resume-markdown"></pre>
     </div>
+    <a id="fast" href="/?delay=0">快进</a>
+
   </div>
 </body>
+<script >
+if (window.location.search.indexOf('delay') >-1)document.getElementById('fast').style.display = 'none';
+</script>
+<style type="text/css">
+  #app{
+    height: 100vh;
+    width: 100vw;
+  }
+  #fast{
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    position: fixed;
+    background-color: azure;
+    border-radius: 15px;
+    bottom: 0;
+    right: 0;
+    line-height: 30px;
+    color: #333;
+
+  }
+</style>
 </html>

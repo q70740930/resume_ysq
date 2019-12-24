@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "webpack-dev-server --open --config ./build/webpack.dev.js",
     "build": "node ./build/build.js",
-    "lint": "standard",
+    "lint": "standard --fix",
     "validate": "npm ls"
   },
   "main": "app.js",
